@@ -1,7 +1,10 @@
 package com.erislandio.cursomc.domain;
 
+import javax.persistence.Entity;
+
 import com.erislandio.cursomc.domain.enums.TipoEstadoPagamento;
 
+@Entity
 public class PagamentoCartao extends Pagamento {
 	private Integer numeroParcelas;
 
