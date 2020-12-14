@@ -35,6 +35,8 @@ public class Cliente implements Serializable {
 	@CollectionTable(name = "TELEFONE")
 	private java.util.Set<String> telefones = new HashSet<String>();
 	
+	private List<Pedido> pedidos = new ArrayList<Pedido>();
+	
 	public Cliente() {}
 
 	public Cliente(Integer id, String nome, String email, String documento, TipoCliente tipoCliente) {
@@ -125,6 +127,14 @@ public class Cliente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 	
 }
