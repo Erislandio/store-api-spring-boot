@@ -13,7 +13,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.erislandio.cursomc.domain.Categoria;
 import com.erislandio.cursomc.services.CategoriaService;
-import com.sun.org.apache.xerces.internal.util.URI;
 
 @RestController
 @RequestMapping(value="/categorias")
@@ -33,6 +32,19 @@ public class CategoriaResources {
 		Categoria obj = this.service.insert(categoria);
 		java.net.URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@PathVariable Integer id, @RequestBody Categoria categoria) {
+		categoria.setId(id);
+		this.service.update(categoria);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> remove(@PathVariable Integer id) {
+		this.service.remove(id);
+		return ResponseEntity.noContent().build();
 	}
 
 }

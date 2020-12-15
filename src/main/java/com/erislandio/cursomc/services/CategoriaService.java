@@ -25,4 +25,14 @@ public class CategoriaService {
 		return this.repo.save(obj);
 	}
 	
+	public Categoria update(Categoria newCategoria) {
+		this.findById(newCategoria.getId());		
+		return this.repo.save(newCategoria);
+	}
+	
+	public void remove(Integer id) {
+		this.findById(id);
+		this.repo.deleteById(id);
+	}
+	
 }
