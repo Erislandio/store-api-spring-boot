@@ -6,6 +6,8 @@ import com.erislandio.cursomc.domain.enums.TipoEstadoPagamento;
 
 @Entity
 public class PagamentoCartao extends Pagamento {
+	
+	private static final long serialVersionUID = 1L;
 	private Integer numeroParcelas;
 
 	public PagamentoCartao() {
